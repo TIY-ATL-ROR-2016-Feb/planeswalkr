@@ -1,13 +1,13 @@
 <h1><%= @cardset.name %></h1>
 
-
-
-<ul class="valign-wrapper container card-images">
+<ul class="col s12 card-images">
   <% @cards.each do |card| %>
-    <li class="responsive-img col s4">
+    <li class="responsive-img">
         <%= image_tag(card.image_url) %>
     </li>
   <% end %>
 </ul>
 
-<%= paginate @cards %>
+<div class="">
+  <%= paginate @cards %>
+</div>

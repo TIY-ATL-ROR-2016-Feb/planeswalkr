@@ -1,14 +1,5 @@
 @import "materialize";
 
-
-
-/******************************
-SIDEBAR
-// ******************************/
-// .body{
-// 	position:relative;
-// }
-
 .sidebar-top {
   display: inline-block;
 //  vertical-align: top;
@@ -29,41 +20,29 @@ SIDEBAR
 	color: #019FCE;
 }
 
-.valign-wrapper ul{
+.card-images ul {
   display: inline-block;
-	margin: none;
-	position: relative;
-	height: 100vh;
-
-}
-.valign-wrapper {
-	display: inline-block;
-}
-.valign-wrapper.container.card-images ul{
-	display: inline-block;
-	-webkit-padding-start: 10px;
+  width: 70%;
 }
 
-.responsive-img img{
-	width: 200px;
-	margin: 0;
-	display: inline-block;
+.card-images li {
+  display: inline-block;
+}
+
+.responsive-img img {
+	width: 300px;
+	margin: 30px;
 	margin-bottom: 15px;
 	-webkit-padding-start: 10px;
-}
-
-li.responsive-img.col.s4 {
-	width: auto;
-}
-
-nav.pagination{
-	position: absolute;
-	bottom: 0;
-	right: 0;
 }
 
 .content {
   display: inline-block;
   vertical-align: top;
   width: 70%;
+}
+
+.pagination {
+    position: absolute;
+    bottom: 0;
 }
