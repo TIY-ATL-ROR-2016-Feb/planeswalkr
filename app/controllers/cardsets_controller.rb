@@ -13,20 +13,8 @@ class CardsetsController < ApplicationController
       flash[:notice] = "That JSON file is all fucked up."
       redirect_to root_path
     end
-    ActiveRecord::Base.transaction do
-      @set = CardSet.new(name: data["name"],
-                         set_type: data["type"],
-                         code: data["code"],
-                         release_date: DateTime.parse(data["releaseDate"]),
-                         block: data["block"],
-                         image_dir: params[:image_dir])
-      @cards = data["cards"].map do |card|
-        Card.import_from_json(card)
-      end
-      @set.cards = @cards
-      @set.save
-    end
-    flash[:notice] = "New Set Import #{@set.name} was successful." if @set.persisted?
+    ImportJob.perform_later(data, params[:import_dir])
+    flash[:notice] = "Your data is queued for Import. You'll receive an email upon completion."
     redirect_to root_path
   end
 
