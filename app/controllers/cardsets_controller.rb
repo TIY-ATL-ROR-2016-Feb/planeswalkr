@@ -13,7 +13,7 @@ class CardsetsController < ApplicationController
       flash[:notice] = "That JSON file is all fucked up."
       redirect_to root_path
     end
-    ImportJob.perform_later(data, params[:import_dir])
+    ImportJob.perform_later(data, params[:image_dir])
     flash[:notice] = "Your data is queued for Import. You'll receive an email upon completion."
     redirect_to root_path
   end
