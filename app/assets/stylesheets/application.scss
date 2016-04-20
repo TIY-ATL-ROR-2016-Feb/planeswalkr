@@ -9,17 +9,12 @@ SIDEBAR
 // 	position:relative;
 // }
 
-.body{
-	width:100vw;
-}
-
-
 .sidebar-top {
-	float: left;
+  display: inline-block;
+//  vertical-align: top;
 	padding-left: 50px;
 	margin-right: 2%;
-	width: 25%;
-
+	width: 20%;
 }
 
 .menu-sidebar {
@@ -34,20 +29,11 @@ SIDEBAR
 	color: #019FCE;
 }
 
-.yield {
-	margin-left: auto;
-	width: 100vw;
-	position:relative;
-
-	// float: left;
-}
-
-
 .valign-wrapper ul{
-  display:inline-block;
-	margin:none;
-	position:relative;
-	height:100vh;
+  display: inline-block;
+	margin: none;
+	position: relative;
+	height: 100vh;
 
 }
 .valign-wrapper {
@@ -59,31 +45,25 @@ SIDEBAR
 }
 
 .responsive-img img{
-	width:200px;
-	margin:0;
-	display:inline-block;
-	margin-bottom:15px;
+	width: 200px;
+	margin: 0;
+	display: inline-block;
+	margin-bottom: 15px;
 	-webkit-padding-start: 10px;
-
-	// display:flex;
-	// flex-wrap:wrap;
 }
-
 
 li.responsive-img.col.s4 {
 	width: auto;
 }
 
 nav.pagination{
-	position:absolute;
-	bottom:0;
-	right:0;
-
-
+	position: absolute;
+	bottom: 0;
+	right: 0;
 }
 
-// nav.pagination a{
-// 	position:absolute;
-// 	right:100px;;
-// 	width: 20%;
-// }
+.content {
+  display: inline-block;
+  vertical-align: top;
+  width: 70%;
+}
