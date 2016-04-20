@@ -30,7 +30,12 @@ gem 'bcrypt', '~> 3.1.7'
 # Use materialize for a less awful UI.
 gem 'materialize-sass'
 
+# Use kaminari for pagination
 gem 'kaminari'
+
+# Use Resque for background jobs
+gem 'resque'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
