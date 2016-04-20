@@ -48,6 +48,9 @@ group :development, :test do
 
   # Add pry for greatness.
   gem 'pry'
+
+  # Add foreman for procfile management and running the app.
+  gem 'foreman'
 end
 
 group :development do
