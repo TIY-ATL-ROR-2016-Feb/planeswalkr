@@ -1,20 +1,57 @@
+<h5>Card Search</h5>
+
 <%= form_tag(card_search_path, method: :get) do %>
 
-	<%= text_field_tag :name %>
+  <div class="input-field">
+    <%= label_tag "Name" %>
+  	<%= text_field_tag :name %>
+  </div>
 
-  <%= select_tag :card_set,
-    options_from_collection_for_select(CardSet.all, "name", "id") %>
+  <div class="input-field">
+    <%= label_tag "Edition" %>
+    <%= select_tag :card_set,
+                   options_from_collection_for_select(CardSet.all, "id", "name"),
+                   include_blank: true %>
+  </div>
 
-  <%= select_tag :cost_filter, [["Less Than",    "<"],
-                                ["Equal To",     "="],
-                                ["Greater Than", ">"]] %>
-  <%= text_field_tag :mana_cost %>
+  <br>
 
-	<%= select_tag :card_type, ["Artifact", "Creature", "Enchantment", "Instant", "Land", "Planeswalker", "Sorcery"] %>
+  <div class="input-field">
+    <%= label_tag "Casting Cost" %>
+    <%= select_tag :cost_filter, options_for_select([["Less Than",    "<"],
+                                                     ["Equal To",     "="],
+                                                     ["Greater Than", ">"]]) %>
+    <%= text_field_tag :mana_cost, nil, placeholder: 0 %>
+  </div>
 
-  <%= select_tag :colors, ["White", "Black", "Blue", "Green", "Red"] %>
+  <br>
 
-	<%= text_field_tag :text %>
+  <div class="input-field">
+    <%= label_tag "Type" %>
+    <%= select_tag :card_type, options_for_select(["Artifact",
+                                                   "Creature",
+                                                   "Enchantment",
+                                                   "Instant",
+                                                   "Land",
+                                                   "Planeswalker",
+                                                   "Sorcery"]),
+                   multiple: true, include_blank: true %>
+  </div>
+
+  <div class="input-field">
+    <%= label_tag "Color" %>
+    <%= select_tag :colors, options_for_select(["White",
+                                                "Black",
+                                                "Blue",
+                                                "Green",
+                                                "Red"]),
+                   multiple: true, include_blank: true %>
+  </div>
+
+  <div class="input-field">
+    <%= label_tag "Text" %>
+	  <%= text_field_tag :text %>
+  </div>
 
 	<%= button_tag "Submit" %>
 
