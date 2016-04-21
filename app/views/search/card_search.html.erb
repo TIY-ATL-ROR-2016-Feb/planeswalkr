@@ -1,5 +1,4 @@
-<h1>Listing Search Results</h1>
-
+<h1>Search Results</h1>
 
 <table class="highlight">
 	<thead>
@@ -14,13 +13,13 @@
 	<tbody>
 		<tr>
 
-			<% @card.each do |card| %>
-				<td><%= card.name %></td> 
-				<td><%= card.colors %></td> 
-				<td><%= card.card_type %></td> 
-				<td><%= card.mana_cost %></td>
+			<% @cards.each do |card| %>
+				<td><%= card.name %></td>
+				<td><%= card.colors.join(", ") %></td>
+				<td><%= card.card_type %></td>
+				<td><%= card.converted_cost %></td>
+			<% end %>
 
-			<% end %>	
 		</tr>
 	</tbody>
 </table>
