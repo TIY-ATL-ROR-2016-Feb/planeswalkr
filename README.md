@@ -16,8 +16,11 @@ with `rake db:migrate` as with any other Rails project.
 Then create a new User via `rails c` complete with admin privileges.
 For example, `u = User.create(full_name: "Britton Butler", email: "brit@lies.com", password: "cookies", admin: true)`
 
+Importing sets currently is performed via background job so you'll need to have
+redis installed and run locally with `foreman start`.
+
 Afterwards you should make sure to load any desired card set data from
-[MtG JSON][mtg-sets]. You're on your own for a source of card images,
-unfortunately. Note not the zipped folder but the actual set link saved somewhere, ie. desktop.
+[MtG JSON][mtg-sets]. Make sure to import the actual *Set* JSON, not the zip files.
+You're on your own for a source of card images, unfortunately. Damn DMCA crap.
 
 [mtg-sets]: http://mtgjson.com/sets.html
