@@ -1,5 +1,22 @@
 class Card < ActiveRecord::Base
   belongs_to :card_set
+  validates_presence_of :name, :multiverse_id, :type, :card_set_id
+  validates :multiverse_id, uniqueness: true
+
+  include PgSearch
+
+  pg_search_scope :named, against: :name
+  pg_search_scope :containing, against: :text
+
+  scope :cost_under, -> (amount) { where("converted_cost < ?", amount) }
+  scope :cost_over,  -> (amount) { where("converted_cost > ?", amount) }
+  scope :cost_is,    -> (amount) { where("converted_cost = ?", amount) }
+
+  ## TODO: Add Scopes for Card Type, Colors and use them in SearchController!
+  ## The of_type scope should support multiple types!
+  ## I.e. [Artifact, Creature] should find Cards where card_type contains
+  ## artifact *or* creature.
+  scope :of_type,    -> (name)   { where("card_type ILIKE ?", "%#{name}%") }
 
   IMAGE_BASE_URI = "https://s3.amazonaws.com/images.planeswalker.io"
   BASIC_LANDS = ["Island", "Forest", "Mountain", "Plains", "Swamp"]
@@ -33,6 +50,7 @@ class Card < ActiveRecord::Base
              power: card_data["power"],
              toughness: card_data["toughness"],
              card_number: match ? match[1] : nil,
-             colors: card_data["colors"])
+             colors: card_data["colors"],
+             multiverse_id: card_data["multiverseid"])
   end
 end

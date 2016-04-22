@@ -1,7 +1,7 @@
 class ImportJob < ActiveJob::Base
   queue_as :default
 
-  def perform(data, image_dir)
+  def perform(data, image_dir, user)
     ActiveRecord::Base.transaction do
       @set = CardSet.new(name: data["name"],
                          set_type: data["type"],
@@ -16,10 +16,13 @@ class ImportJob < ActiveJob::Base
       @set.save
     end
     if @set && @set.persisted?
+      puts "Set imported successfully for #{@user.full_name} (#{@user.email})."
       ## send an email maybe with a link to the new set
     else
-      puts "Errors during saving: #{@set.errors.full_messages}"
-      ## send an email, saying why we couldn't save
+      set_errors = @set.errors.full_messages.uniq.join(", ")
+      card_errors = @set.cards.flat_map { |x| x.errors.full_messages }.uniq
+      puts "Failed to import. Set errors include '#{set_errors}' and card errors included '#{card_errors}'."
+      ## Send an email with the errors.
     end
   end
 end

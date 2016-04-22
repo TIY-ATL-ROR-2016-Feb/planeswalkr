@@ -36,6 +36,9 @@ gem 'kaminari'
 # Use Resque for background jobs
 gem 'resque'
 
+# Use PG Search for more involved Postgres text search.
+gem 'pg_search'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
@@ -51,6 +54,9 @@ group :development, :test do
 
   # Add foreman for procfile management and running the app.
   gem 'foreman'
+
+  # Add dotenv for .env file managing greatness.
+  gem 'dotenv-rails'
 end
 
 group :development do

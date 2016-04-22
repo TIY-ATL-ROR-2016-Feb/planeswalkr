@@ -1,25 +1,12 @@
 @import "materialize";
 
-
-
-/******************************
-SIDEBAR
-// ******************************/
-// .body{
-// 	position:relative;
-// }
-
-.body{
+.body {
 	width:100vw;
 }
 
-
 .sidebar-top {
-	float: left;
-	padding-left: 50px;
-	margin-right: 2%;
-	width: 25%;
-
+	position: absolute;
+	width: 25vw;
 }
 
 .menu-sidebar {
@@ -27,7 +14,6 @@ SIDEBAR
 	border: 2px solid #ecf0f1;
 	height: 100vh;
 	padding: 10px;
-
 }
 
 .menu-items {
@@ -36,54 +22,51 @@ SIDEBAR
 
 .yield {
 	margin-left: auto;
-	width: 100vw;
-	position:relative;
-
-	// float: left;
+	width: 70vw;
+	position: relative;
 }
 
 
-.valign-wrapper ul{
-  display:inline-block;
-	margin:none;
-	position:relative;
-	height:100vh;
+.valign-wrapper ul {
+  display: inline-block;
+	margin: none;
+	position: relative;
+	height: 100vh;
 
 }
+
 .valign-wrapper {
 	display: inline-block;
+		width: inherit;
 }
-.valign-wrapper.container.card-images ul{
+
+.valign-wrapper.container.card-images ul {
 	display: inline-block;
 	-webkit-padding-start: 10px;
 }
 
 .responsive-img img{
-	width:200px;
-	margin:0;
-	display:inline-block;
-	margin-bottom:15px;
+	width: 200px;
+	margin: 0;
+	display: inline-block;
+	margin-bottom: 15px;
 	-webkit-padding-start: 10px;
 
-	// display:flex;
-	// flex-wrap:wrap;
 }
-
 
 li.responsive-img.col.s4 {
 	width: auto;
 }
 
-nav.pagination{
-	position:absolute;
-	bottom:0;
-	right:0;
-
-
+nav.pagination {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+}
+.container {
+	padding-bottom: 50px;
 }
 
-// nav.pagination a{
-// 	position:absolute;
-// 	right:100px;;
-// 	width: 20%;
-// }
+nav {
+	background-color: #311b92;
+}
