@@ -11,15 +11,22 @@
 	</thead>
 
 	<tbody>
-		<tr>
-
 			<% @cards.each do |card| %>
-				<td><%= card.name %></td>
-				<td><%= card.colors.join(", ") %></td>
-				<td><%= card.card_type %></td>
-				<td><%= card.converted_cost %></td>
+				<tr>
+					<td>
+					  <a class="modal-trigger" href="#modal-<%= card.id %>">
+					    <%= card.name %>
+					  </a>
+					  <div id="modal-<%= card.id %>" class="modal">
+					    <div class="image-popup">
+     				    <%= image_tag(card.image_url) %>
+     				  </div>
+					  </div>
+					</td>
+					<td><%= card.colors.join(", ") %></td>
+					<td><%= card.card_type %></td>
+					<td><%= card.converted_cost %></td>
+				</tr>
 			<% end %>
-
-		</tr>
 	</tbody>
 </table>
