@@ -45,6 +45,9 @@ group :development, :test do
 
   # Add pry for greatness.
   gem 'pry'
+
+  # Add dotenv for .env file managing greatness.
+  gem 'dotenv-rails'
 end
 
 group :development do
