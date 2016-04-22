@@ -30,9 +30,15 @@ gem 'bcrypt', '~> 3.1.7'
 # Use materialize for a less awful UI.
 gem 'materialize-sass'
 
+# Use kaminari for pagination
 gem 'kaminari'
 
+# Use Resque for background jobs
+gem 'resque'
+
+# Use PG Search for more involved Postgres text search.
 gem 'pg_search'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
@@ -45,6 +51,9 @@ group :development, :test do
 
   # Add pry for greatness.
   gem 'pry'
+
+  # Add foreman for procfile management and running the app.
+  gem 'foreman'
 
   # Add dotenv for .env file managing greatness.
   gem 'dotenv-rails'
